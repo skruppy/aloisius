@@ -1,0 +1,13 @@
+## Only add files relevant for every user of this repository to this .gitignore!
+## If you want to ignore files special to you and this repository, add them to
+## $REPO/.git/info/exclude. For repository agnostic files, special to you
+## (e.g. editor swap files), add them to ~/.config/git/ignore.
+##
+## Keep ../.dockerignore in sync with this file
+
+/aloisius.sqlite3
+/.venv
+/.pdm-python
+/.pdm-build/
+__pycache__/
+/dist

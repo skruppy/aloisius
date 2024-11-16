@@ -1,0 +1,44 @@
+## The following scripts are available either after you install the (build)
+## package or by running "pdm run ..."
+[project.scripts]
+aloisius = "aloisius.cli:main"
+
+
+## PEP 621, PEP 639 project metadata (see https://www.python.org/dev/peps/pep-0621/)
+[project]
+name        = "aloisius"
+description = "Web tool to manage standby angel deployments on chaos events"
+dynamic     = ["version"]
+
+authors = [
+	{name = "Skruppy", email = "skruppy@onmars.eu"},
+]
+license = {text = "Apache-2.0"}
+
+urls.Homepage   = "https://github.com/skruppy/aloisius"
+urls.Repository = "git@github.com:skruppy/aloisius.git"
+
+## Dependencies
+requires-python = ">=3.11"
+dependencies = [
+	"fastapi[standard]>=0.115.5",
+	"sqlmodel>=0.0.22"
+]
+optional-dependencies.sqlite = [
+]
+optional-dependencies.mysql  = [
+	"PyMySQL[rsa] ~=1.0",
+]
+optional-dependencies.pgsql  = [
+	"psycopg2 ~=2.9",
+]
+
+
+[build-system]
+requires      = ["pdm-backend"]
+build-backend = "pdm.backend"
+
+
+[tool.pdm]
+distribution   = true
+version.source = "scm"
