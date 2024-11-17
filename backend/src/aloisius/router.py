@@ -6,6 +6,7 @@ from fastapi import APIRouter, Depends, FastAPI
 from sqlmodel import SQLModel, create_engine
 from .db import get_db_session
 from .model import *
+from . import __version__
 from typing import List
 from sqlalchemy import select
 from fastapi.openapi.utils import get_openapi
@@ -13,11 +14,12 @@ from fastapi.middleware.cors import CORSMiddleware
 
 
 
+__api_version__ = '1.0.0'
 app = FastAPI(
 	## Check OpenAPI schema (fka swagger) with http://localhost:8080/api/1/redoc or
 	## http://localhost:8080/api/1/docs
 	title = 'Aloisius Programming Interface (API)',
-	version = '1.0.0', ## API version, not Package version
+	version = __api_version__, ## API version, not Package version
 	description = 'Web tool to manage standby angel deployments on chaos events',
 )
 
@@ -27,6 +29,15 @@ app.add_middleware(
 	allow_credentials=False,
 	allow_methods =['GET', 'POST', 'PATCH', 'DELETE'],
 )
+
+
+## http -j GET 127.0.0.1:8080/api/1/version
+@app.get('/version')
+def read_job() -> VersionInfo:
+	return VersionInfo(
+		app = __version__,
+		api = __api_version__,
+	)
 
 
 ## http -j POST 127.0.0.1:8080/api/1/jobs location="Lager" initial_caller="BOC" on_site_contact="Aloisius (1234)" angels="2-3" task_prepareation="Handschuhe holen" task_description="Kästen stapeln" notes="YOLO"

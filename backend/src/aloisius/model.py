@@ -17,6 +17,10 @@ JobStatus = StrEnum('JobStatus', [
 
 
 
+class VersionInfo(SQLModel):
+	app: str
+	api: str
+
 class CreateJob(SQLModel):
 	location: str
 	initial_caller: str ## Source GURU | None
