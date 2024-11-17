@@ -7,7 +7,7 @@ from .model import *
 
 
 
-engine = create_engine("sqlite:///database.db", echo=True)
+engine = create_engine("sqlite:///aloisius.sqlite3", echo=True)
 SQLModel.metadata.create_all(engine)
 
 def get_db_session():

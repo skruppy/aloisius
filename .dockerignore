@@ -8,7 +8,7 @@
 /backend/.venv/
 /backend/.pdm-build/
 /backend/.pdm-python
-/backend/database.db
+/backend/aloisius.sqlite3
 /backend/**/__pycache__/
 
 /frontend/node_modules/
