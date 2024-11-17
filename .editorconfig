@@ -1,0 +1,18 @@
+## See https://editorconfig.org
+
+root = true
+
+[*.{js,ts,vue,py}]
+charset = utf-8
+indent_style = tab
+insert_final_newline = true
+trim_trailing_whitespace = false
+end_of_line = lf
+
+[*.{js,ts,vue}]
+indent_size = 2
+tab_width = 2
+
+[*.{py}]
+indent_size = 4
+tab_width = 4
