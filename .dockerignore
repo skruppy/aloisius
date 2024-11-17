@@ -1,0 +1,18 @@
+## This file is part of aloisius <https://github.com/skruppy/aloisius>
+## Copyright (c) Skruppy <skruppy@onmars.eu>
+## SPDX-License-Identifier: Apache-2.0
+
+## Keep this file in sync with */.gitignore
+
+/backend/dist/
+/backend/.venv/
+/backend/.pdm-build/
+/backend/.pdm-python
+/backend/database.db
+/backend/**/__pycache__/
+
+/frontend/node_modules/
+/frontend/dist/
+
+## Only in dockerignore
+/backend/src/aloisius/statics/
